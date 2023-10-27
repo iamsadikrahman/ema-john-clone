@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Product from '../Product/Product';
+import Cart from "../Cart/Cart"
 
 
 
@@ -44,14 +45,13 @@ const handleAddToCart = (product) => {
 
     return (
         <>
-        <div className='grid grid-cols-4'>
-        <div className='col-span-3 grid grid-cols-3 gap-10 mx-auto my-20'>
+        <div className='grid grid-cols-5'>
+        <div className='col-span-4 grid grid-cols-3 gap-10 mx-auto my-20'>
             {products.map((product)=> <Product key={product.id} product={product} handleAddToCart={handleAddToCart}></Product>)}
         </div>
-        <div className='bg-orange-100 px-5'>
-            <h1 className='text-2xl font-semibold text-center mt-20'>Order Summary</h1>
-            <hr className='mb-5'/>
-            <h1>Selected Items: {cart.length}</h1>
+        {/* Want to sticky cart  */}
+        <div className='bg-orange-200 px-5'>
+           <Cart cart={cart}/>
         </div>
         </div>
         </>
